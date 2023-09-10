@@ -453,7 +453,6 @@ Temporary Items
 
 # content below from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
 # Windows thumbnail cache files
-Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
 
@@ -475,3 +474,46 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/Front/ProEventos-APP/.angular/cache
+/Front/ProEventos-APP/.sass-cache/
+/Front/ProEventos-APP/connect.lock
+/Front/ProEventos-APP/coverage
+/Front/ProEventos-APP/libpeerconnection.log
+/Front/ProEventos-APP/testem.log
+/Front/ProEventos-APP/typings
+
+# System files
+Thumbs.db
+
