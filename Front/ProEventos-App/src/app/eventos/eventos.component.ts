@@ -9,11 +9,19 @@ import { Component } from '@angular/core';
 })
 export class EventosComponent {
 
-  public eventos: any;
+  public eventos: any = [];
+  withImagem: number = 150;
+  marginImagem: number = 2;
+  statusImagem: boolean = true;
+  filtroBuscar: string = '';
 
   constructor( private http: HttpClient ) { }
   ngOnInit(): void{
     this.getEventos();
+  }
+
+  public alterarImagem(): void{
+    this.statusImagem = !this.statusImagem;
   }
 
   public getEventos(): void {

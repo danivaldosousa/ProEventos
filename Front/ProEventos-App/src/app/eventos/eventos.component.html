@@ -1,18 +1,26 @@
 <h2>Eventos</h2>
 <hr>
 
-<form action="" class="form-inline">
+<div class="form-inline">
   <div class="form-group mb-2">
-    <input type="text" class="form-control mr-3" placeholder="buscar">
+    <input type="text" class="form-control mr-3"
+           placeholder="buscar"
+           [(ngModel)]="filtroBuscar"
+    >
       <button class="btn btn-outline-success">Buscar</button>
   </div>
-</form>
 
+</div>
+Filtro: {{filtroBuscar}}
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
+      <th >
+        <button class="btn btn-outline-light btn-sm"
+          (click)="alterarImagem()"
+        >{{ !statusImagem ? 'ocultar' : 'exibir' }}</button>
+      </th>
       <th>#</th>
-      <th>Imagem</th>
       <th>Tema</th>
       <th>Local</th>
       <th>Data</th>
@@ -21,17 +29,33 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let evento of eventos">
-      <th></th>
-      <th>{{evento.imageUrl}}</th>
-      <th>{{evento.tema}}</th>
-      <th>{{evento.local}}</th>
-      <th>{{evento.dataEvento}}</th>
-      <th>{{evento.quantidadePessoas}}</th>
-      <th>{{evento.lote}}</th>
-      <th></th>
+      <td>
+        <img src="assets/{{evento.imageURL}}"
+        [style.width.px]="withImagem"
+        [style.margin.px]="marginImagem"
+        alt="Fotos de Evento de Tecnologia"
+        [collapse]="statusImagem" [isAnimated]="true"
+        >
+      </td>
+      <th>{{evento.eventoId}}</th>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.quantidadePessoas}}</td>
+      <td>{{evento.lote}}</td>
+      <td>Opções</td>
     </tr>
   </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>
+          Nenhum evento encontrado
+        </h4>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
